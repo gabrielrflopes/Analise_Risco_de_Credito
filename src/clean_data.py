@@ -86,10 +86,6 @@ def remove_cols(df: pd.DataFrame, cols_to_drop: list, verbose=True) -> pd.DataFr
     # Remove exemplos com valores negativos para external_data_provider_email_seen_before
     df_cleaned = df_cleaned[df_cleaned['external_data_provider_email_seen_before'] >= 0]
     df_cleaned = df_cleaned.reset_index(drop=True)
-
-    # Remove infinite values from reported_income feature
-    df_cleaned = df_cleaned.loc[df_cleaned['reported_income'] != np.inf]
-    df_cleaned = df_cleaned.reset_index(drop=True)
     
     if verbose:
         # Imprimir dimensões do conjunto limpo
